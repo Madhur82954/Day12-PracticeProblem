@@ -31,6 +31,18 @@ namespace Day12_PracticeProblem
                 Console.WriteLine("Id : " + student.Id + " Name : " + student.Name + " PhoneNumber: " + student.PhoneNumber + " Address: " + student.Address + " Age : " + student.Age + " Total Marks : " + student.TotalMarks);
             }
         }
+        public void Address(List<Student> students)
+        {
+            var StudentsByAddress = students.GroupBy(e => e.Address);
+            Console.WriteLine("------------------");
+            foreach(var stud in StudentsByAddress)
+            {
+                foreach (var student in stud)
+                {
+                    Console.WriteLine("Id : " + student.Id + " Name : " + student.Name + " PhoneNumber: " + student.PhoneNumber + " Address: " + student.Address + " Age : " + student.Age + " Total Marks : " + student.TotalMarks);
+                }
+            }
+        }
         public void RetrieveFirst3(List<Student> students)
         {
             Console.WriteLine("------------------");
@@ -63,6 +75,7 @@ namespace Day12_PracticeProblem
             Program program = new Program();
             program.RetrieveAge(students);
             program.Sort(students);
+            program.Address(students);
             program.RetrieveFirst3(students);
             program.CheckNameExists(students);
         }
